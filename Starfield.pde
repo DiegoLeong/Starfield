@@ -35,7 +35,7 @@ class NormalParticle
   }
   void show()
   {
-     bn
+     
   }
 }
 interface Particle
