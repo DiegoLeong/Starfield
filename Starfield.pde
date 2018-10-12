@@ -1,4 +1,4 @@
-Particle[] normie = new Particle[10];
+Particle[] normie = new Particle[2];
 void setup()
 {
   //your code here
