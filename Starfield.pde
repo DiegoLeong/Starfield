@@ -1,17 +1,18 @@
-Particle[] normie = new Particle[2];
+Particle[] normie = new Particle[100];
 void setup()
 {
   //your code here
   size(400,400);
-  for(int i = 0; i<normie.length; i++)
+  for(int i = 0; i < normie.length; i++)
   {
     normie[i] = new NormalParticle();
   }  
+  normie[0]= new JumboParticle();
 }
 void draw()
 {
-  //your code here
-  for(int i = 0; i<normie.length; i++)
+  background(199);
+  for(int i = 0; i < normie.length; i++)
   {
     normie[i].show();
     normie[i].move();
@@ -27,14 +28,13 @@ class NormalParticle implements Particle
   {
     x=y=200;
     speed=(Math.random()*10)+1;
-    angle=Math.random()*Math.PI*2;
+    angle=(Math.random()*Math.PI*2);
     particolor= color(179, 237, 177);
   }
   public void move()
   {
-    x= x + cos((float)angle)*speed;
-    y= y + cos((float)angle)*speed;
-
+    x= x + Math.cos(angle)*speed;
+    y= y + Math.sin(angle)*speed;
   }
   public void show()
   {
@@ -51,7 +51,11 @@ class OddballParticle //uses an interface
 {
   //your code here
 }
-class JumboParticle //uses inheritance
+class JumboParticle extends NormalParticle//uses inheritance
 {
   //your code here
+  public void show()
+  {
+      ellipse((float)x,(float)y,50,50);
+  }
 }
