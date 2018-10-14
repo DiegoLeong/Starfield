@@ -7,12 +7,15 @@ void setup()
   {
     normie[i] = new NormalParticle();
   }  
-  normie[0]= new JumboParticle();
+  for(int i = 0; i < 50; i++)
+  {
+    normie[i] = new JumboParticle();
+  }
   normie[1]= new OddballParticle();
 }
 void draw()
 {
-  background(199);
+  background(255);
   for(int i = 0; i < normie.length; i++)
   {
     normie[i].show();
@@ -40,7 +43,9 @@ class NormalParticle implements Particle
   }
   public void show()
   {
-      ellipse((float)x,(float)y,10,10);
+    fill(particolor);
+    noStroke();
+    ellipse((float)x,(float)y,10,10);
   }
 }
 interface Particle
@@ -53,17 +58,19 @@ interface Particle
 class OddballParticle implements Particle//uses an interface
 {
   //your code here
-    double x =200;
-    double y =200;
+    double x =150;
+    double y =150;
+    float angle = PI/3;
   public void move()
   {
-    
     //x = x + Math.cos(180)*5;
     //y = y + Math.sin(180)*5;
+    angle =  + PI/3;
   }
   public void show()
   {
     rect((float)x,(float)y,100,100);
+    rotate(angle);
   }
 }
 
