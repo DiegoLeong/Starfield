@@ -1,4 +1,4 @@
-Particle[] normie = new Particle[100];
+Particle[] normie = new Particle[500];
 void setup()
 {
   //your code here
@@ -8,6 +8,7 @@ void setup()
     normie[i] = new NormalParticle();
   }  
   normie[0]= new JumboParticle();
+  normie[1]= new OddballParticle();
 }
 void draw()
 {
@@ -18,6 +19,7 @@ void draw()
     normie[i].move();
   }  
 }
+
 class NormalParticle implements Particle
 {
   //your code here
@@ -27,7 +29,7 @@ class NormalParticle implements Particle
   NormalParticle()
   {
     x=y=200;
-    speed=(Math.random()*10)+1;
+    speed=((Math.random()*10)+1);
     angle=(Math.random()*Math.PI*2);
     particolor= color(179, 237, 177);
   }
@@ -44,14 +46,27 @@ class NormalParticle implements Particle
 interface Particle
 {
   //your code here
-  public void show();
   public void move();
+  public void show();
+  
 }
 class OddballParticle implements Particle//uses an interface
 {
   //your code here
-  
+    double x =200;
+    double y =200;
+  public void move()
+  {
+    
+    //x = x + Math.cos(180)*5;
+    //y = y + Math.sin(180)*5;
+  }
+  public void show()
+  {
+    rect((float)x,(float)y,100,100);
+  }
 }
+
 class JumboParticle extends NormalParticle//uses inheritance
 {
   //your code here
