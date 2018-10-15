@@ -58,20 +58,24 @@ interface Particle
 class OddballParticle implements Particle//uses an interface
 {
   //your code here
-    double x =150;
-    double y =150;
-    float angle = PI/3;
+    double x =200;
+    double y =200;
+    //float angle = PI/3;
   public void move()
   {
     //x = x + Math.cos(180)*5;
     //y = y + Math.sin(180)*5;
-    angle =  + PI/3;
+    //angle =  + PI/3;
   }
   public void show()
   {
-    rect((float)x,(float)y,100,100);
-    rect(175,200,75,75);
-    rotate(angle);
+    /*for(int h = 0; h <100; h +=1)
+    {
+    for(int w = 0; w <100; w +=1)
+    {
+      ellipse((float)x,(float)y,w,h);
+    }
+    }*/
   }
 }
 
@@ -80,6 +84,6 @@ class JumboParticle extends NormalParticle//uses inheritance
   //your code here
   public void show()
   {
-      ellipse((float)x,(float)y,50,50);
+    ellipse((float)x,(float)y,50,50);
   }
 }
