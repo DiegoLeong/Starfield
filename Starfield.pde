@@ -1,4 +1,4 @@
-Particle[] normie = new Particle[500];
+Particle[] normie = new Particle[2000];
 void setup()
 {
   //your code here
@@ -70,6 +70,7 @@ class OddballParticle implements Particle//uses an interface
   public void show()
   {
     rect((float)x,(float)y,100,100);
+    rect(175,200,75,75);
     rotate(angle);
   }
 }
