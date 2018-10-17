@@ -1,4 +1,5 @@
-Particle[] normie = new Particle[3000];
+Particle[] normie = new Particle[2000];
+Epicc ebic = new Epicc();
 void setup()
 {
   //your code here
@@ -21,20 +22,47 @@ void draw()
     normie[i].show();
     normie[i].move();
   }  
+  ebic.show();
+}
+
+class Epicc 
+{
+
+  Epicc()
+  {
+
+  }
+  void show()
+  { 
+    fill(0);
+    rect(100,280,200,120);
+    fill(206,180,133);
+    rect(165,250,60,40);
+    fill(219,194,149);
+    rect(150,150,100,100);
+    rect(180,250,70,25);
+    //glasses
+    fill(0);
+    rect(175,180,40,15);
+    rect(225,180,40,15);
+    //tux
+    fill(255);
+    rect(165,280,60,120);
+  }
 }
 
 class NormalParticle implements Particle
 {
   //your code here
   double x, y, speed, angle;
-  color particolor;
-  
+  color particolor, jumbocolor;
   NormalParticle()
   {
     x=y=200;
     speed=((Math.random()*2)+1);
     angle=(Math.random()*Math.PI*2);
-    particolor= color(179, 237, 177);
+    particolor= color(239, 146, 40);
+    jumbocolor= color(255, 214, 33);
   }
   public void move()
   {
@@ -43,6 +71,7 @@ class NormalParticle implements Particle
   }
   public void show()
   {
+    tint(255, 50);
     fill(particolor);
     noStroke();
     ellipse((float)x,(float)y,10,10);
@@ -64,7 +93,7 @@ class OddballParticle implements Particle//uses an interface
   //float angle = PI/3;
   public void show()
   {
-    fill(240,30,30);
+    fill(226, 111, 49);
     ellipse((float)x,(float)y,s,s);
   }  
   public void move()
@@ -79,7 +108,7 @@ class JumboParticle extends NormalParticle//uses inheritance
   //your code here
   public void show()
   {
-    fill(particolor);
+    fill(jumbocolor);
     ellipse((float)x,(float)y,50,50);
   }
 }
